@@ -1,0 +1,16 @@
+services:
+  comfyui:
+    container_name: tensorrt-llm-container
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: tensorrt-llm-image
+
+    volumes:
+      - ..:/home/dev/projects/
+    ports:
+      - '8188:8188'
+    stdin_open: true
+    tty: true
+    devices:
+      - nvidia.com/gpu=all
